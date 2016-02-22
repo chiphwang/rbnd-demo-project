@@ -71,7 +71,7 @@ walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
 
 
-puts "=====================The following is additiona implemented Features======"
+puts "=====================The following is additional implemented Features======"
 
 # Addition Feetures 1. implemented a return_item option, added brands to each product
 #implemented a search by brand which returen a list of products by brand
