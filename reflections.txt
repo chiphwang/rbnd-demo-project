@@ -1,0 +1,8 @@
+1. I spent about 15 hours on the project
+2. The most rewarding challenge is figuring out how to access an attribute from an object
+one thing that confused me is that when you run Product.all from IRB it shows the object with all the attributes whereas if yiu 
+run the same from the ruby "and the file" it just lists the objectid.
+3. I built the ability to return the item and it will increment the stock. I added the brand attribute to each product and
+the ability to search by brand and it will return a list of products for the brand. They were the first 2 suggestions from the list.
+4. I think that still need to grow at better looking up things. I did not discover there was the slack channels for udacity  till this project.
+I found the channel to be quite useful.
