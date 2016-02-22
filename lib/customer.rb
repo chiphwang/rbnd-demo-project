@@ -14,6 +14,8 @@ class Customer
   end
 
 
+# checks if customer alreay exists
+
   def add_to_customer(name)
     if !@@customers.to_s.include?(self.name)
         @@customers << self #add this new instance of Product to the array of ALL instances
@@ -24,6 +26,7 @@ class Customer
   end
 
 
+# serach product based on name
   def self.find_by_name(check_name)
     @@customers.each do |customer|
        if customer.name == check_name

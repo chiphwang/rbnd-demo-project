@@ -5,9 +5,9 @@ require_relative "lib/transaction"
 
 # PRODUCTS
 
-Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55)
-Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12)
-Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0)
+Product.new(title: "LEGO Iron Man vs. Ultron", price: 22.99, stock: 55, brand: "LEGO")
+Product.new(title: "Nano Block Empire State Building", price: 49.99, stock: 12, brand: "Nano")
+Product.new(title: "LEGO Firehouse Headquarter", price: 199.99, stock: 0, brand: "LEGO")
 
 puts Product.all.count # Should return 3
 
@@ -61,7 +61,6 @@ puts nanoblock.stock # Should return 11
 # PURCHASES
 
 walter.purchase(nanoblock)
-puts nanoblock.stock
 
 puts Transaction.all.count # Should return 2
 
@@ -71,11 +70,24 @@ puts transaction2.product == nanoblock # Should return true
 walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
 
+# Addition Feetures 1. implemented a return_item option, added brands to each product
+#implemented a search by brand which returen a list of products by brand
+
 walter.return_item(nanoblock)
 # return nanaoblock to stock
 
 puts Transaction.all.count
-# transcation count should be 3
+# transaction count should be 3
 
-puts nanoblock.in_stock?
 puts nanoblock.stock
+# should output 11
+
+
+#### search by brand ##########
+brand = "LEGO"
+puts "#{brand} has the following Products"
+puts Product.search_brand(brand)
+
+#Should output
+#LEGO Iron Man vs. Ultron
+#LEGO Firehouse Headquarter

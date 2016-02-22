@@ -9,13 +9,14 @@ class Transaction
        @id = @@transactions.length + 1
        @transaction_type=transaction_type
        @@transactions << self
-       transactiontype(@transaction_type,@product)
+       transactiontype(@transaction_type,@product) # check if transaction is a purchase or return
       end
 
       def self.all
         @@transactions
       end
 
+#method to search for transaction based on transaction ID
 
   def self.find(check_id)
     @@transactions.each do |transaction|
@@ -25,6 +26,7 @@ class Transaction
     end
   end
 
+#if transaction is a purchase decremnt stock, if it is a return increment stock
 
   def transactiontype(type,product)
     if type == "purchase"

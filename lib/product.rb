@@ -3,11 +3,12 @@
 class Product
 
   attr_accessor :stock
-  attr_reader :title,:price
+  attr_reader :title,:price, :brand
 
   @@products = []
 
   def initialize(options={})
+    @brand = options[:brand]
     @title = options[:title]
   	@price = options[:price]
   	@stock = options[:stock]
@@ -52,5 +53,19 @@ end
     end
     return instock
   end
+
+
+  def self.search_brand(brand_search)
+  brand=[]
+  @@products.each do |product|
+      if product.brand == brand_search
+      brand << product.title
+      else
+     end
+   end
+   return brand
+ end
+
+
 
 end
