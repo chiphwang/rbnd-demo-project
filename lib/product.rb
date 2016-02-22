@@ -1,18 +1,18 @@
 
 
-
 class Product
-  attr_reader :title , :id, :price, :stock
+
+  attr_accessor :stock
+  attr_reader :title,:price
 
   @@products = []
 
-  def  initialize(options={})
-       @title = options[:title]
-  	   @price = options[:price]
-  	   @stock = options[:stock]
-       @id = @@products.length
-      add_to_product(@title)
-      end
+  def initialize(options={})
+    @title = options[:title]
+  	@price = options[:price]
+  	@stock = options[:stock]
+    add_to_product(@title)
+end
 
 def self.all
   @@products
@@ -25,37 +25,32 @@ def add_to_product(title)
       @@products << self #add this new instance of Product to the array of ALL instances
     else
       puts "#{@title} already exists"
+      #raise DuplicateProductError, "'#{@title}' already exists."
     end
-end
+  end
 
 
-  def self.find_by_title(new_title)
+
+  def self.find_by_title(check_title)
     @@products.each do |product|
-       if product.title == new_title
+       if product.title == check_title
           return product
          end
        end
    end
 
-   def self.in_stock
-     @instock = []
-     @@products.each do |product|
-       if product.stock > 0
-         @instock << product
-       else
-       end
-     end
-     return @instock
-   end
-
-
-
-
 def in_stock?
-   self.stock > 0
- end
+  self.stock > 0
+end
 
-
-
+  def self.in_stock
+    instock=[]
+    @@products.each do |product|
+      if product.stock > 0
+        instock << product
+      end
+    end
+    return instock
+  end
 
 end
