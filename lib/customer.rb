@@ -6,7 +6,6 @@ class Customer
   def  initialize(options={})
        @name = options[:name]
        @id = @@customers.length
-       @purchase=[]
        add_to_customer(@name)
   end
 
@@ -39,8 +38,13 @@ class Customer
      # raise OutOfStockError, "'#{product.title}' is out of stock."
    else
     @add_to_product=product
-    Transaction.new(self,@add_to_product)
+    Transaction.new(self,@add_to_product,"purchase")
    end
+end
+
+  def return_item(product)
+    @add_to_product=product
+    Transaction.new(self,@add_to_product,"returns")
 end
 
 
