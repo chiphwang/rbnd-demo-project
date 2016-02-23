@@ -25,8 +25,7 @@ def add_to_product(title)
   if !@@products.to_s.include?(self.title)
       @@products << self #add this new instance of Product to the array of ALL instances
     else
-      puts "#{@title} already exists"
-      #raise DuplicateProductError, "'#{@title}' already exists."
+      raise DuplicateProductError, "'#{@title}' already exists."
     end
   end
 
